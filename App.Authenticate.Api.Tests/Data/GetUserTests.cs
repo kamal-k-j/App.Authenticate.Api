@@ -1,6 +1,6 @@
 ﻿using App.Authenticate.Api.Data;
 using App.Authenticate.Api.Data.Dto;
-using App.Authenticate.Api.Entities;
+using App.Authenticate.Api.Entities.Response;
 using AutoFixture;
 using FluentAssertions;
 using Moq.AutoMock;

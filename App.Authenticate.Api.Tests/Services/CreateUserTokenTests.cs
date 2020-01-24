@@ -1,4 +1,4 @@
-﻿using App.Authenticate.Api.Entities;
+﻿using App.Authenticate.Api.Entities.Response;
 using App.Authenticate.Api.Options;
 using App.Authenticate.Api.Services;
 using AutoFixture;

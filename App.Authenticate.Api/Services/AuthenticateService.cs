@@ -1,6 +1,6 @@
-﻿using System.IdentityModel.Tokens.Jwt;
-using App.Authenticate.Api.Data;
-using App.Authenticate.Api.Entities;
+﻿using App.Authenticate.Api.Data;
+using App.Authenticate.Api.Entities.Response;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace App.Authenticate.Api.Services
 {

@@ -1,4 +1,4 @@
-﻿using App.Authenticate.Api.Entities;
+﻿using App.Authenticate.Api.Entities.Response;
 
 namespace App.Authenticate.Api.Services
 {

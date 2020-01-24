@@ -1,5 +1,5 @@
 ﻿using App.Authenticate.Api.Data;
-using App.Authenticate.Api.Entities;
+using App.Authenticate.Api.Entities.Response;
 using App.Authenticate.Api.Services;
 using AutoFixture;
 using FluentAssertions;

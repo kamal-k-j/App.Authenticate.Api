@@ -1,5 +1,5 @@
 ﻿using App.Authenticate.Api.Data.Dto;
-using App.Authenticate.Api.Entities;
+using App.Authenticate.Api.Entities.Response;
 
 namespace App.Authenticate.Api.Data
 {
