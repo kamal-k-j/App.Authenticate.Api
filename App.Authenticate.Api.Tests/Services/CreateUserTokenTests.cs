@@ -1,7 +1,9 @@
 ﻿using App.Authenticate.Api.Entities;
+using App.Authenticate.Api.Options;
 using App.Authenticate.Api.Services;
 using AutoFixture;
 using FluentAssertions;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Moq.AutoMock;
 using System;
@@ -30,20 +32,29 @@ namespace App.Authenticate.Api.Tests.Services
             var subject = Mocker.CreateInstance<CreateUserToken>();
             var user = AutoFixture.Create<User>();
             var jwtTokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(Guid.NewGuid().ToString());
+            var jwtConfig = new JwtConfig
+            {
+                SecretKey = Guid.NewGuid().ToString(),
+                ExpireDays = AutoFixture.Create<byte>()
+            };
+            var key = Encoding.ASCII.GetBytes(jwtConfig.SecretKey);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new[]
                 {
                     new Claim(ClaimTypes.Name, user.Id.ToString())
                 }),
-                Expires = DateTime.UtcNow.AddDays(7),
+                Expires = DateTime.UtcNow.AddDays(jwtConfig.ExpireDays),
                 SigningCredentials = new SigningCredentials(
                     new SymmetricSecurityKey(key),
                     SecurityAlgorithms.HmacSha256Signature
                 )
             };
             var securityToken = jwtTokenHandler.CreateToken(tokenDescriptor);
+
+            Mocker.GetMock<IOptions<JwtConfig>>()
+                .Setup(service => service.Value)
+                .Returns(jwtConfig);
 
             // Act
             var result = subject.Create(jwtTokenHandler, user.Id);
