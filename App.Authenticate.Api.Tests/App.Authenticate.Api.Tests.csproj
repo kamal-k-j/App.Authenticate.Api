@@ -17,10 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\App.Authenticate.Api\App.Authenticate.Api.csproj" />
   </ItemGroup>
 

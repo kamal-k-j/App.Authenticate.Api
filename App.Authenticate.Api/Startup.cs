@@ -1,5 +1,3 @@
-using System;
-using System.Text;
 using App.Authenticate.Api.Data;
 using App.Authenticate.Api.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -9,8 +7,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System;
+using System.Text;
 
 namespace App.Authenticate.Api
 {
