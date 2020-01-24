@@ -1,9 +1,9 @@
-﻿using App.Authenticate.Models.Request;
-using App.Authenticate.Services;
+﻿using App.Authenticate.Api.Models.Request;
+using App.Authenticate.Api.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace App.Authenticate.Controllers
+namespace App.Authenticate.Api.Controllers
 {
     [Authorize]
     [ApiController]

@@ -1,7 +1,7 @@
-﻿using App.Authenticate.Data.Dto;
-using App.Authenticate.Entities;
+﻿using App.Authenticate.Api.Data.Dto;
+using App.Authenticate.Api.Entities;
 
-namespace App.Authenticate.Data
+namespace App.Authenticate.Api.Data
 {
     public class GetUser : IGetUser
     {

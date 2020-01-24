@@ -1,5 +1,7 @@
-using App.Authenticate.Data;
-using App.Authenticate.Services;
+using System;
+using System.Text;
+using App.Authenticate.Api.Data;
+using App.Authenticate.Api.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
@@ -9,10 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Text;
 
-namespace App.Authenticate
+namespace App.Authenticate.Api
 {
     public class Startup
     {

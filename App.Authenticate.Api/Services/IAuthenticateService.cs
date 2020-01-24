@@ -1,6 +1,6 @@
-﻿using App.Authenticate.Entities;
+﻿using App.Authenticate.Api.Entities;
 
-namespace App.Authenticate.Services
+namespace App.Authenticate.Api.Services
 {
     public interface IAuthenticateService
     {

@@ -1,4 +1,4 @@
-﻿namespace App.Authenticate.Entities
+﻿namespace App.Authenticate.Api.Entities
 {
     public class User
     {
