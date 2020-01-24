@@ -1,6 +1,6 @@
-﻿using App.Authenticate.Entities;
+﻿using App.Authenticate.Api.Entities;
 
-namespace App.Authenticate.Data
+namespace App.Authenticate.Api.Data
 {
     public interface IGetUser
     {

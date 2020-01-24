@@ -1,12 +1,12 @@
-﻿using App.Authenticate.Data;
-using App.Authenticate.Data.Dto;
-using App.Authenticate.Entities;
+﻿using App.Authenticate.Api.Data;
+using App.Authenticate.Api.Data.Dto;
+using App.Authenticate.Api.Entities;
 using AutoFixture;
 using FluentAssertions;
 using Moq.AutoMock;
 using Xunit;
 
-namespace App.Authenticate.Tests.Data
+namespace App.Authenticate.Api.Tests.Data
 {
     public class GetUserTests
     {

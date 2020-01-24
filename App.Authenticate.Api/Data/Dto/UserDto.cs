@@ -1,6 +1,6 @@
-﻿using App.Authenticate.Entities;
+﻿using App.Authenticate.Api.Entities;
 
-namespace App.Authenticate.Data.Dto
+namespace App.Authenticate.Api.Data.Dto
 {
     public class UserDto
     {

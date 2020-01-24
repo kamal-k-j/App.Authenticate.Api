@@ -1,13 +1,13 @@
-﻿using App.Authenticate.Controllers;
-using App.Authenticate.Models.Request;
-using App.Authenticate.Services;
+﻿using App.Authenticate.Api.Controllers;
+using App.Authenticate.Api.Models.Request;
+using App.Authenticate.Api.Services;
 using AutoFixture;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
 using Moq.AutoMock;
 using Xunit;
 
-namespace App.Authenticate.Tests.Controllers
+namespace App.Authenticate.Api.Tests.Controllers
 {
     public class UsersControllerTests
     {
@@ -26,7 +26,7 @@ namespace App.Authenticate.Tests.Controllers
             // Arrange
             var subject = Mocker.CreateInstance<UsersController>();
             var request = AutoFixture.Create<User>();
-            var response = AutoFixture.Create<Entities.User>();
+            var response = AutoFixture.Create<Api.Entities.User>();
 
             Mocker.GetMock<IAuthenticateService>()
                 .Setup(service => service.Authenticate(request.Email, request.Password))
@@ -48,7 +48,7 @@ namespace App.Authenticate.Tests.Controllers
 
             Mocker.GetMock<IAuthenticateService>()
                 .Setup(service => service.Authenticate(request.Email, request.Password))
-                .Returns((Entities.User)null);
+                .Returns((Api.Entities.User)null);
 
             // Act
             var result = subject.Authenticate(request);
