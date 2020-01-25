@@ -1,22 +1,24 @@
-﻿using App.Authenticate.Api.Data;
+﻿using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using App.Authenticate.Api.Data;
 using App.Authenticate.Api.Entities.Response;
 using App.Authenticate.Api.Services;
+using App.Authenticate.Api.Services.Authenticate;
 using AutoFixture;
 using FluentAssertions;
 using Microsoft.IdentityModel.Tokens;
 using Moq;
 using Moq.AutoMock;
-using System;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 using Xunit;
 
-namespace App.Authenticate.Api.Tests.Services
+namespace App.Authenticate.Api.Tests.Services.Authenticate
 {
     public class AuthenticateServiceTests
     {
         public Fixture AutoFixture { get; set; }
+
         public AutoMocker Mocker { get; set; }
 
         public AuthenticateServiceTests()

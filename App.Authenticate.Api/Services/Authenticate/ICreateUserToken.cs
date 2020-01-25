@@ -1,7 +1,7 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 
-namespace App.Authenticate.Api.Services
+namespace App.Authenticate.Api.Services.Authenticate
 {
     public interface ICreateUserToken
     {

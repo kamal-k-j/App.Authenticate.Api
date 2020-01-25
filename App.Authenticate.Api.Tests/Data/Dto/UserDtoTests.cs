@@ -10,6 +10,7 @@ namespace App.Authenticate.Api.Tests.Data.Dto
     public class UserDtoTests
     {
         public Fixture AutoFixture { get; set; }
+
         public AutoMocker Mocker { get; set; }
 
         public UserDtoTests()
@@ -28,9 +29,22 @@ namespace App.Authenticate.Api.Tests.Data.Dto
             var result = (User)subject;
 
             // Assert
-            result.Should().BeEquivalentTo(subject, options =>
-                options.Excluding(u => u.Password));
+            result.Should().BeEquivalentTo(subject);
             result.Token.Should().BeEmpty();
+        }
+
+        [Fact]
+        public void WhenCastingToUserDto()
+        {
+            // Arrange
+            var subject = Mocker.CreateInstance<User>();
+
+            // Act
+            var result = (UserDto)subject;
+
+            // Assert
+            result.Should().BeEquivalentTo(subject, options =>
+                options.Excluding(u => u.Token));
         }
     }
 }

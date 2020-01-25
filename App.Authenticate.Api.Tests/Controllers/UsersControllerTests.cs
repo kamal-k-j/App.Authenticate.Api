@@ -1,10 +1,12 @@
 ﻿using App.Authenticate.Api.Controllers;
 using App.Authenticate.Api.Entities.Request;
 using App.Authenticate.Api.Entities.Response;
-using App.Authenticate.Api.Services;
+using App.Authenticate.Api.Services.Authenticate;
+using App.Authenticate.Api.Services.Register;
 using AutoFixture;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
+using Moq;
 using Moq.AutoMock;
 using Xunit;
 
@@ -13,12 +15,28 @@ namespace App.Authenticate.Api.Tests.Controllers
     public class UsersControllerTests
     {
         public Fixture AutoFixture { get; set; }
+
         public AutoMocker Mocker { get; set; }
 
         public UsersControllerTests()
         {
             AutoFixture = new Fixture();
             Mocker = new AutoMocker();
+        }
+
+        [Fact]
+        public void WhenRegister()
+        {
+            // Arrange
+            var subject = Mocker.CreateInstance<UsersController>();
+            var request = AutoFixture.Create<UserRegister>();
+
+            // Act
+            subject.Register(request);
+
+            // Assert
+            Mocker.Verify<IRegisterService>(service =>
+                service.Register(request), Times.Once);
         }
 
         [Fact]

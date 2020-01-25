@@ -1,12 +1,12 @@
-﻿using App.Authenticate.Api.Options;
-using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
-using System;
+﻿using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using App.Authenticate.Api.Options;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 
-namespace App.Authenticate.Api.Services
+namespace App.Authenticate.Api.Services.Authenticate
 {
     public class CreateUserToken : ICreateUserToken
     {

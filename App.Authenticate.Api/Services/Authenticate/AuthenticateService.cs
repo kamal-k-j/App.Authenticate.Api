@@ -1,8 +1,8 @@
-﻿using App.Authenticate.Api.Data;
+﻿using System.IdentityModel.Tokens.Jwt;
+using App.Authenticate.Api.Data;
 using App.Authenticate.Api.Entities.Response;
-using System.IdentityModel.Tokens.Jwt;
 
-namespace App.Authenticate.Api.Services
+namespace App.Authenticate.Api.Services.Authenticate
 {
     public class AuthenticateService : IAuthenticateService
     {

@@ -1,5 +1,6 @@
 ﻿using App.Authenticate.Api.Entities.Request;
-using App.Authenticate.Api.Services;
+using App.Authenticate.Api.Services.Authenticate;
+using App.Authenticate.Api.Services.Register;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

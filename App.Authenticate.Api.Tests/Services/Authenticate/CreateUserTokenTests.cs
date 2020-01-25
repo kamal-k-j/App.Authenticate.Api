@@ -1,6 +1,6 @@
 ﻿using App.Authenticate.Api.Entities.Response;
 using App.Authenticate.Api.Options;
-using App.Authenticate.Api.Services;
+using App.Authenticate.Api.Services.Authenticate;
 using AutoFixture;
 using FluentAssertions;
 using Microsoft.Extensions.Options;
@@ -12,11 +12,12 @@ using System.Security.Claims;
 using System.Text;
 using Xunit;
 
-namespace App.Authenticate.Api.Tests.Services
+namespace App.Authenticate.Api.Tests.Services.Authenticate
 {
     public class CreateUserTokenTests
     {
         public Fixture AutoFixture { get; set; }
+
         public AutoMocker Mocker { get; set; }
 
         public CreateUserTokenTests()

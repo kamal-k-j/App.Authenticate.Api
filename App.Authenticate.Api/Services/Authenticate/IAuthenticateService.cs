@@ -1,6 +1,6 @@
 ﻿using App.Authenticate.Api.Entities.Response;
 
-namespace App.Authenticate.Api.Services
+namespace App.Authenticate.Api.Services.Authenticate
 {
     public interface IAuthenticateService
     {

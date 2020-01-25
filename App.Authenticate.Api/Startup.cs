@@ -1,5 +1,10 @@
 using App.Authenticate.Api.Data;
+using App.Authenticate.Api.IoC;
+using App.Authenticate.Api.Options;
 using App.Authenticate.Api.Services;
+using App.Authenticate.Api.Services.Authenticate;
+using App.Authenticate.Api.Services.Register;
+using Autofac;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
@@ -9,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Serilog;
 using System.Text;
 
 namespace App.Authenticate.Api
@@ -38,6 +44,9 @@ namespace App.Authenticate.Api
 
             services.AddHealthChecks();
 
+            services.Configure<JwtConfig>(Configuration.GetSection("JwtConfig"));
+            services.Configure<SecurityConfig>(Configuration.GetSection("SecurityConfig"));
+
             var key = Encoding.ASCII.GetBytes(Configuration.GetValue<string>("JwtConfig:SecretKey"));
             services.AddAuthentication(x =>
             {
@@ -60,6 +69,16 @@ namespace App.Authenticate.Api
             services.AddTransient<IAuthenticateService, AuthenticateService>();
             services.AddTransient<ICreateUserToken, CreateUserToken>();
             services.AddTransient<IGetUser, GetUser>();
+            services.AddTransient<IStoreUser, StoreUser>();
+            services.AddTransient<IPasswordManager, PasswordManager>();
+            services.AddTransient<IMapUserRegister, MapUserRegister>();
+            services.AddTransient<IRegisterService, RegisterService>();
+        }
+
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            builder.RegisterInstance(Log.Logger).As<ILogger>();
+            builder.RegisterModule(new CustomDatabaseRegistrationModule(Configuration, typeof(Startup).Assembly));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
