@@ -40,7 +40,7 @@ namespace App.Authenticate.Api.Tests.Services
 
             // Assert
             result.Should().NotBe(password);
-            subject.Verify(result.PasswordHash, result.PasswordSalt, password).Should().BeTrue();
+            subject.Verify(result.PasswordHash, result.HashSalt, password).Should().BeTrue();
         }
 
         [Fact]
@@ -64,7 +64,7 @@ namespace App.Authenticate.Api.Tests.Services
 
             // Assert
             result.Should().NotBe(password);
-            subject.Verify(result.PasswordHash, result.PasswordSalt, wrongPassword).Should().BeFalse();
+            subject.Verify(result.PasswordHash, result.HashSalt, wrongPassword).Should().BeFalse();
         }
     }
 }

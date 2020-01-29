@@ -4,14 +4,14 @@
     {
         public GeneratedPassword(
             string passwordHash,
-            string passwordSalt)
+            string hashSalt)
         {
             PasswordHash = passwordHash;
-            PasswordSalt = passwordSalt;
+            HashSalt = hashSalt;
         }
 
         public string PasswordHash { get; }
 
-        public string PasswordSalt { get; }
+        public string HashSalt { get; }
     }
 }
